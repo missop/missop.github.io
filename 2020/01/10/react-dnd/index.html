@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      react-dnd - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-dnd"><span class="toc-text">react-dnd</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#useDrag-useDrop中的数据传递"><span class="toc-text">useDrag,useDrop中的数据传递</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻止冒泡"><span class="toc-text">阻止冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DropTargetMonitor"><span class="toc-text">DropTargetMonitor</span></a></li></ol></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">react-dnd</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2020/01/10</span>
+      </span>
+
+      
+
+      
+
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h3 id="前言">前言<a class="post-anchor" href="#前言"></a></h3><p>react的拖拽库很多，例如react-beautiful-dnd(以下简称rbd),react-draggable,react-dnd</p>
+<p>但是它们都有各自的特点：</p>
+<p>rbd交互做的很完美，符合物理学的特征</p>
+<p>局限性：根元素必须是可放置元素，也就是说我们无法单独设置一个只可往外拖拽的元素，太多的东西已经帮我们做好了，所以扩展性差</p>
+<p>react-draggable功能比较局限</p>
+<p>react-dnd只提供底层API，我们还是需要去处理复杂数据交换，扩展性高</p>
+<h3 id="react-dnd">react-dnd<a class="post-anchor" href="#react-dnd"></a></h3><p>当无法选择的时候，react-dnd就是最好的选择了</p>
+<p>react-dnd现在有hooks，写起来非常方便</p>
+<p>组成部分:react-dnd-html5-backend、react-dnd<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;DndProvider backend=&#123;Backend&#125;&gt;</span><br><span class="line">  &lt;Example /&gt;</span><br><span class="line">&lt;<span class="regexp">/DndProvider&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="useDrag-useDrop中的数据传递">useDrag,useDrop中的数据传递<a class="post-anchor" href="#useDrag-useDrop中的数据传递"></a></h4><p>useDrag(item)=&gt;useDrag(begin)=&gt;useDrop(hover) hover没有返回值，这条链断裂</p>
+<p>useDrag(item)=&gt;useDrag(begin)=&gt;useDrop(drop)=&gt;useDrag(end)</p>
+<p>因此一般在useDrag(end)中进行数据交换的操作</p>
+<h4 id="阻止冒泡">阻止冒泡<a class="post-anchor" href="#阻止冒泡"></a></h4><p>官方的处理方式：<code>useDrop({isOverCurrent: monitor.isOver({ shallow: true })})</code></p>
+<p>但是其实这样做还不够，因为hover的执行是不受影响的，非常影响性能，如果使用了redux就更是如此了，整个组件树每秒渲染几次，谁受的了？</p>
+<p>所以需要在hover中我们要自己去diff前后状态(与redux中的状态比较)是否有改变，再决定是否执行后面的操作</p>
+<h4 id="DropTargetMonitor">DropTargetMonitor<a class="post-anchor" href="#DropTargetMonitor"></a></h4><ol>
+<li>判断是否放下元素</li>
+</ol>
+<p><code>monitor.didDrop()</code></p>
+<ol start="2">
+<li>鼠标位置</li>
+</ol>
+<p><code>monitor.getClientOffset() 返回{ x,y }</code></p>
+<p>这个位置可以用来判断放在元素上面还是下面，我们还需要一个方法</p>
+<p><code>const ref = useRef&lt;any&gt;(null); const boundRect:{ top,bottom,left,right,width,height } = ref.current.getBoundingRect()</code></p>
+<p>判断元素位置函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span> (<span class="params">mouseY,min,max</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> mouseY&gt;=min &amp;&amp; mouseY&lt;max</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> offset = monitor.getClientOffset()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isTop = getPosition(offset.y,boundRect.top,boundRect.top+boundRect.height/<span class="number">2</span>)</span><br><span class="line"><span class="keyword">const</span> isBottom = getPosition(offset.y,boundRect.bottom-boundRect.height/<span class="number">2</span>,boundRect.bottom)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>getBoundingRect,offset,scroll</li>
+</ol>
+<p>getBoundingRect–相对于视口的位置，也就是相对于document的位置，滚动之后会发生变化，不能使用缓存函数缓存值</p>
+<p>monitor.getClientOffset()–也是相对于视口的位置，同上实时获取</p>
+<p>offset–相对于父级定位元素的尺寸，无法计算嵌套元素的位置</p>
+<p>scroll–滚动的高度</p>
+
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+      <a href="2020/01/13/uform-1.0版本/">uform@1.0</a>
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2019/12/09/micro-frontend1/">micro frontend(一)</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2020/01/10/react-dnd/">https://missop.github.io/2020/01/10/react-dnd/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      排序算法解析 - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序"><span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择排序"><span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入排序"><span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希尔排序"><span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#归并排序"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排序"><span class="toc-text">快速排序</span></a></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">排序算法解析</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2019/04/29</span>
+      </span>
+
+      
+
+      
+
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h2 id="冒泡排序">冒泡排序<a class="post-anchor" href="#冒泡排序"></a></h2><p>最慢的排序算法—–两层循环相邻比较<br>最佳情况：T(n) = O(n)   最差情况：T(n) = O(n2)   平均情况：T(n) = O(n2)</p>
+<h2 id="选择排序">选择排序<a class="post-anchor" href="#选择排序"></a></h2><p>从数组的开头开始，将第一个元素和其他元素比较，最小的元素放到第一个位置再从第二个元素开始<br>最佳情况：T(n) = O(n2)  最差情况：T(n) = O(n2)  平均情况：T(n) = O(n2)</p>
+<h2 id="插入排序">插入排序<a class="post-anchor" href="#插入排序"></a></h2><p>外循环：选中的元素，逐渐向右移动，第一个为index为1的元素<br>内循环：将选中元素与前面index-1个元素比较插入到合适的位置<br>比较相邻元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [], temp, inner;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> outer = <span class="number">1</span>; outer &lt; data.length; outer++) &#123;</span><br><span class="line"><span class="comment">/*选中的元素 */</span></span><br><span class="line">temp = data[outer];</span><br><span class="line">inner = outer;</span><br><span class="line">    <span class="keyword">while</span> (inner &gt; <span class="number">0</span> &amp;&amp; (data[inner - <span class="number">1</span>]) &gt;= temp) &#123;</span><br><span class="line">        data[inner] = data[inner - <span class="number">1</span>];</span><br><span class="line">        inner--;</span><br><span class="line">    &#125;</span><br><span class="line">    data[inner] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最佳情况：T(n) = O(n)   最坏情况：T(n) = O(n2)   平均情况：T(n) = O(n2)</p>
+<h2 id="希尔排序">希尔排序<a class="post-anchor" href="#希尔排序"></a></h2><p>改善的插入排序：比较较远的元素<br>按照一定的增量进行分组，组内排序，然后组间排序，如果增量为1则是插入排序<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shellSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> gap = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>); gap &gt; <span class="number">0</span>; gap = <span class="built_in">Math</span>.floor(gap / <span class="number">2</span>)) &#123;</span><br><span class="line">        <span class="comment">// 内层循环与插入排序的写法基本一致，只是每次移动的步长变为 gap</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = gap; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">let</span> j = i;</span><br><span class="line">            <span class="keyword">let</span> temp = arr[j];</span><br><span class="line">            <span class="keyword">for</span> (; j &gt; <span class="number">0</span>; j -= gap) &#123;</span><br><span class="line">                <span class="keyword">if</span> (temp &gt;= arr[j - gap]) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                arr[j] = arr[j - gap];</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最佳情况：T(n) = O(nlog2 n)  最坏情况：T(n) = O(nlog2 n)  平均情况：T(n) =O(nlog2n)　</p>
+<h2 id="归并排序">归并排序<a class="post-anchor" href="#归并排序"></a></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> step = <span class="number">1</span>, left, right;</span><br><span class="line">    <span class="comment">/* 不能划出数组长度 */</span></span><br><span class="line">    <span class="keyword">while</span> (step &lt; arr.length) &#123;</span><br><span class="line">        left = <span class="number">0</span>;</span><br><span class="line">        right = step;</span><br><span class="line">        <span class="keyword">while</span> (right + step &lt;= arr.length) &#123;</span><br><span class="line">            mergeArrays(arr, left, left + step, right, right + step);</span><br><span class="line">            left = right + step;</span><br><span class="line">            right = left + step;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &lt; arr.length) &#123;</span><br><span class="line">            mergeArrays(arr, left, left + step, right, arr.length);</span><br><span class="line">        &#125;</span><br><span class="line">        step *= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 归并排序就是分左数组和右数组的过程，先从两个数组开始慢慢合并 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeArrays</span>(<span class="params">arr, startLeft, stopLeft, startRight, stopRight</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 先创建哨兵值 */</span></span><br><span class="line">    <span class="keyword">var</span> rightArr = <span class="keyword">new</span> <span class="built_in">Array</span>(stopRight - startRight + <span class="number">1</span>),</span><br><span class="line">        leftArr = <span class="keyword">new</span> <span class="built_in">Array</span>(stopLeft - startLeft + <span class="number">1</span>),</span><br><span class="line">        temp = startRight;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; rightArr.length - <span class="number">1</span>; index++) &#123;</span><br><span class="line">        rightArr[index] = arr[temp];</span><br><span class="line">        temp++;</span><br><span class="line">    &#125;</span><br><span class="line">    temp = startLeft;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; leftArr.length - <span class="number">1</span>; j++) &#123;</span><br><span class="line">        leftArr[j] = arr[temp];</span><br><span class="line">        temp++;</span><br><span class="line">    &#125;</span><br><span class="line">    rightArr[rightArr.length - <span class="number">1</span>] = <span class="literal">Infinity</span>;</span><br><span class="line">    leftArr[leftArr.length - <span class="number">1</span>] = <span class="literal">Infinity</span>;</span><br><span class="line">    <span class="comment">/* 对左右数组排序 */</span></span><br><span class="line">    <span class="comment">/* 左右数组的起始位置 */</span></span><br><span class="line">    <span class="keyword">var</span> m = <span class="number">0</span>, n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> a = startLeft; a &lt; stopRight; a++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (leftArr[m] &lt;= rightArr[n]) &#123;</span><br><span class="line">            arr[a] = leftArr[m];</span><br><span class="line">            m++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            arr[a] = rightArr[n];</span><br><span class="line">            n++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mergeSort([<span class="number">123</span>, <span class="number">123</span>, <span class="number">34</span>, <span class="number">32</span>, <span class="number">65</span>, <span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+<p>最佳情况：T(n) = O(n)  最差情况：T(n) = O(nlogn)  平均情况：T(n) = O(nlogn)</p>
+<h2 id="快速排序">快速排序<a class="post-anchor" href="#快速排序"></a></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 设置基准值和比他大的数组和小的数组 */</span></span><br><span class="line">    <span class="keyword">var</span> pivot = arr[<span class="number">0</span>], lesser = [], greater = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">1</span>; index &lt; arr.length; index++) &#123;</span><br><span class="line">        <span class="comment">/* 比基准值小的放入小数组，反之放入大数组 */</span></span><br><span class="line">        <span class="keyword">if</span> (arr[index] &lt; pivot) &#123;</span><br><span class="line">            lesser.push(arr[index]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            greater.push(arr[index]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> quickSort(lesser).concat(pivot, quickSort(greater));</span><br><span class="line">&#125;</span><br><span class="line">quickSort([<span class="number">123</span>, <span class="number">123</span>, <span class="number">34</span>, <span class="number">32</span>, <span class="number">65</span>, <span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+<p>最佳情况：T(n) = O(nlogn)   最差情况：T(n) = O(n2)   平均情况：T(n) = O(nlogn)　</p>
+
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+      <a href="2019/05/01/cocos2d-firstday/">cocos2d-firstday</a>
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2019/03/22/job-interview1/">面试小题</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2019/04/29/basicsort-way/">https://missop.github.io/2019/04/29/basicsort-way/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 

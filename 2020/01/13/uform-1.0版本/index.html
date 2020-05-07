@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      uform@1.0 - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#uform定位"><span class="toc-text">uform定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Schema-JSchema"><span class="toc-text">JSON Schema | JSchema</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uform1-0特性"><span class="toc-text">uform1.0特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Antd扩展库"><span class="toc-text">Antd扩展库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Schema渲染库-uform-react-schema-renderer"><span class="toc-text">Schema渲染库(@uform/react-schema-renderer)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#React核心库-uform-react"><span class="toc-text">React核心库(@uform/react)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心-uform-core"><span class="toc-text">核心:@uform/core</span></a></li></ol></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">uform@1.0</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2020/01/13</span>
+      </span>
+
+      
+
+      
+
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h3 id="uform定位">uform定位<a class="post-anchor" href="#uform定位"></a></h3><p>总结一句话：解决复杂的表单问题，例如表单联动，表单显示隐藏</p>
+<p>但是，uform也能显示类似于表单的文本，格式为”标题：文字”</p>
+<h3 id="JSON-Schema-JSchema">JSON Schema | JSchema<a class="post-anchor" href="#JSON-Schema-JSchema"></a></h3><p>uform提供了两种表达表单的方式，一种是JSON schema:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type:<span class="string">'object'</span>,</span><br><span class="line">  properties:&#123;</span><br><span class="line">    aa:&#123;</span><br><span class="line">      type:<span class="string">'string'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一种是JSchema标签:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;SchemaForm</span><br><span class="line">  onSubmit=&#123;v =&gt; console.log(v)&#125;</span><br><span class="line">  actions=&#123;actions&#125;</span><br><span class="line">  labelCol=&#123;7&#125;</span><br><span class="line">  wrapperCol=&#123;12&#125;</span><br><span class="line">  effects=&#123;($, &#123; setFieldState &#125;) =&gt; &#123;</span><br><span class="line">    $(&apos;onFormMount&apos;).subscribe(() =&gt; &#123;</span><br><span class="line">      setFieldState(&apos;radio&apos;, state =&gt; &#123;</span><br><span class="line">        state.required = true</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&gt;</span><br><span class="line">      &lt;Field</span><br><span class="line">        type=&quot;radio&quot;</span><br><span class="line">        enum=&#123;[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;]&#125;</span><br><span class="line">        title=&quot;Radio&quot;</span><br><span class="line">        name=&quot;radio&quot;</span><br><span class="line">      /&gt;</span><br><span class="line"> &lt;/SchemaForm&gt;</span><br></pre></td></tr></table></figure></p>
+<p>两者的使用情况总结：</p>
+<ol>
+<li>一般情况都使用JSON Schema</li>
+<li>涉及到布局组件的时候，由于它的属性在结构中不表含实际意义，所以使用JSX<br>列出所有布局组件:<code>FormLayout,FormCard,FormBlock,FormItemGrid</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// schema</span></span><br><span class="line"><span class="string">"UFORM_NO_NAME_FIELD_$0"</span>: &#123;</span><br><span class="line">  <span class="string">"type"</span>: <span class="string">"object"</span>,</span><br><span class="line">  <span class="string">"x-props"</span>: &#123;</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"基本信息"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"x-component"</span>: <span class="string">"card"</span>,</span><br><span class="line">  <span class="string">"properties"</span>: &#123;</span><br><span class="line">    <span class="string">"aaa"</span>: &#123;</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"string"</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"字段1"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"bbb"</span>: &#123;</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"number"</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"字段2"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"ccc"</span>: &#123;</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"date"</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"字段3"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// JSX</span></span><br><span class="line">&lt;FormCard title=<span class="string">"基本信息"</span>&gt;</span><br><span class="line">  &lt;Field name=<span class="string">"aaa"</span> type=<span class="string">"string"</span> title=<span class="string">"字段1"</span> /&gt;</span><br><span class="line">  &lt;Field name=<span class="string">"bbb"</span> type=<span class="string">"number"</span> title=<span class="string">"字段2"</span> /&gt;</span><br><span class="line">  &lt;Field name=<span class="string">"ccc"</span> type=<span class="string">"date"</span> title=<span class="string">"字段3"</span> /&gt;​</span><br><span class="line">&lt;<span class="regexp">/FormCard&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="uform1-0特性">uform1.0特性<a class="post-anchor" href="#uform1-0特性"></a></h3><h4 id="Antd扩展库">Antd扩展库<a class="post-anchor" href="#Antd扩展库"></a></h4><ol>
+<li>表单布局</li>
+</ol>
+<p>一行一个字段的形式:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置label占比多少，表单元素占比多少,和为24</span></span><br><span class="line"><span class="comment">// 全局设置</span></span><br><span class="line">&lt;SchemaForm </span><br><span class="line">labelCol=&#123;<span class="number">7</span>&#125;</span><br><span class="line">wrapperCol=&#123;<span class="number">12</span>&#125;</span><br><span class="line">/&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 局部设置</span></span><br><span class="line">&lt;FromLayout</span><br><span class="line">labelCol=&#123;<span class="number">7</span>&#125;</span><br><span class="line">wrapperCol=&#123;<span class="number">12</span>&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>一行多个字段：需要使用表单布局元素：FormItemGrid</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局</span></span><br><span class="line">&lt;SchemaForm inline/&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// cols:内部网格宽度占比 Array&lt;number | &#123;span:number,offset:number&#125;&gt;</span></span><br><span class="line"><span class="comment">// gutter:列间距</span></span><br><span class="line">&lt;FormItemGrid</span><br><span class="line">cols=&#123;[<span class="number">9</span>,<span class="number">15</span>]&#125;</span><br><span class="line">gutter=&#123;<span class="number">10</span>&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>提交与重置按钮<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// submit需要在SchemaForm onSubmit中拿数据</span></span><br><span class="line">&lt;Submit/&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义提交按钮</span></span><br><span class="line">&lt;Button onClick=&#123;<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line"> <span class="keyword">const</span> res = <span class="keyword">await</span> actions.submit()</span><br><span class="line"><span class="comment">//  可以拿到数据</span></span><br><span class="line">&#125;&#125;&gt;</span><br><span class="line"></span><br><span class="line">&lt;Reset/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Schema渲染库-uform-react-schema-renderer">Schema渲染库(@uform/react-schema-renderer)<a class="post-anchor" href="#Schema渲染库-uform-react-schema-renderer"></a></h4><ol>
+<li><p>自定义组件注册</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">registerFormField(<span class="string">'name'</span>,</span><br><span class="line">  connect()(<span class="function">(<span class="params">&#123;dataSource,value,onChange,onBlur&#125;</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">registerFormFields(&#123;</span><br><span class="line">  <span class="string">'name'</span>:connect()(<span class="function">(<span class="params">&#123;dataSource,value,onChange,onBlur&#125;</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非单例模式，命名相同不会受到污染</span></span><br><span class="line"><span class="keyword">const</span> useFields = <span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">  useMemo(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">    name: connect()(<span class="function">(<span class="params">&#123;dataSource,value,onChange,onBlur&#125;</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;))</span><br><span class="line">&lt;SchemaForm fields=&#123;useFields()&#125;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何实现超复杂自定义组件？(InternalField)</p>
+</li>
+</ol>
+<h4 id="React核心库-uform-react">React核心库(@uform/react)<a class="post-anchor" href="#React核心库-uform-react"></a></h4><ol>
+<li>数组类型，对象数组类型增删改查</li>
+</ol>
+<p>@uform/react的Field组件能够接受一个函数式子组件来渲染子元素,返回了状态以及操作方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> InputField = <span class="function"><span class="params">props</span> =&gt;</span> (</span><br><span class="line">  &lt;Field &#123;...props&#125;&gt;</span><br><span class="line">    &#123;(&#123; state, mutators &#125;) =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> loading = state.props.loading</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;&gt;</span><br><span class="line">          &lt;input</span><br><span class="line">            disabled=&#123;!state.editable&#125;</span><br><span class="line">            value=&#123;state.value || <span class="string">''</span>&#125;</span><br><span class="line">            onChange=&#123;mutators.change&#125;</span><br><span class="line">            onBlur=&#123;mutators.blur&#125;</span><br><span class="line">            onFocus=&#123;mutators.focus&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">      )</span></span><br><span class="line"><span class="regexp">    &#125;&#125;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Field&gt;</span><br><span class="line">)</span><br><span class="line">&lt;Field&gt;</span><br><span class="line">&#123;</span><br><span class="line">  (&#123;state,mutators&#125;)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;&gt;</span><br><span class="line">        &#123;</span><br><span class="line">          state.value.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (</span><br><span class="line">              &lt;div key=&#123;index&#125;&gt;</span><br><span class="line">                 &lt;InputField name=&#123;<span class="string">`idList[<span class="subst">$&#123;index&#125;</span>]`</span>&#125; /&gt;</span><br><span class="line">                 &lt;button onClick=&#123;() =&gt; mutators.moveUp(index)&#125;&gt;Add Item&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">                 &lt;button onClick=&#123;() =&gt; mutators.moveDown(index)&#125;&gt;Add Item&lt;/</span>button&gt;</span><br><span class="line">                 &lt;button onClick=&#123;() =&gt; mutators.remove(index)&#125;&gt;Add Item&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>div&gt;</span><br><span class="line">            )</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        &lt;button onClick=&#123;() =&gt; mutators.push()&#125;&gt;Add Item&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/Field&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>从类型1中思考怎么嵌套数组呢?</p>
+</li>
+<li><p>使用受控组件</p>
+</li>
+</ol>
+<p>请求过来的初始值往往通过initialValues不能传递到子组件中去，就直接使用value</p>
+<p>onFieldValueChange设置副作用改变表单值(onFieldChange会有很多问题，例如失去焦点会触发一次)</p>
+<ol start="4">
+<li><p>异步联动(也是使用Field)</p>
+</li>
+<li><p>联动校验</p>
+</li>
+<li><p>复用effects</p>
+</li>
+</ol>
+<h4 id="核心-uform-core">核心:@uform/core<a class="post-anchor" href="#核心-uform-core"></a></h4><ol>
+<li><p>时间旅行Observable Graph，可以记录任意时刻的全量状态</p>
+</li>
+<li><p>高效更新，精确渲染，无需整树渲染</p>
+</li>
+<li><p>校验能力</p>
+</li>
+<li><p>根据路径取值</p>
+</li>
+</ol>
+
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+      <a href="2020/01/21/webpack-proxy/">webpack-proxy</a>
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2020/01/10/react-dnd/">react-dnd</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2020/01/13/uform-1.0版本/">https://missop.github.io/2020/01/13/uform-1.0版本/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 

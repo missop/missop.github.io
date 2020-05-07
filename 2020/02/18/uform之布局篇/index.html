@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      uform之布局篇 - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#默认布局"><span class="toc-text">默认布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内联布局"><span class="toc-text">内联布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#layout布局组件"><span class="toc-text">layout布局组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sticky-按钮吸底"><span class="toc-text">Sticky-按钮吸底</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nested-嵌套布局"><span class="toc-text">nested-嵌套布局</span></a></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">uform之布局篇</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2020/02/18</span>
+      </span>
+
+      
+
+      
+
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h4 id="默认布局">默认布局<a class="post-anchor" href="#默认布局"></a></h4><p>首先看一下默认的布局：</p>
+<p>贴上这段代码直接在codesandbox中运行</p>
+<p>参考地址：<a href="https://codesandbox.io/s/hopeful-snowflake-fiirt" target="_blank" rel="noopener">https://codesandbox.io/s/hopeful-snowflake-fiirt</a><br>参考效果：<a href="/images/uform1.1.png" data-caption="Image text" data-fancybox="images"><img src="/images/uform1.1.png" alt="Image text"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  SchemaForm,</span><br><span class="line">  SchemaMarkupField <span class="keyword">as</span> Field,</span><br><span class="line">  FormButtonGroup,</span><br><span class="line">  Submit,</span><br><span class="line">  Reset</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@uform/next"</span>;</span><br><span class="line"><span class="keyword">import</span> Printer <span class="keyword">from</span> <span class="string">"@uform/printer"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"@alifd/next/dist/next.css"</span>;</span><br><span class="line"><span class="keyword">const</span> App = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;Printer&gt;</span><br><span class="line">    &lt;SchemaForm&gt;</span><br><span class="line">      &lt;Field name=<span class="string">"aaa"</span> type=<span class="string">"string"</span> title=<span class="string">"字段1"</span> /&gt;</span><br><span class="line">      &lt;Field name=<span class="string">"bbb"</span> type=<span class="string">"number"</span> title=<span class="string">"字段2"</span> /&gt;</span><br><span class="line">      &lt;Field name=<span class="string">"ccc"</span> type=<span class="string">"date"</span> title=<span class="string">"字段3"</span> /&gt;</span><br><span class="line">      &lt;FormButtonGroup offset=&#123;<span class="number">8</span>&#125;&gt;</span><br><span class="line">        &lt;Submit&gt;提交&lt;<span class="regexp">/Submit&gt;​ &lt;Reset&gt;重置&lt;/</span>Reset&gt;​</span><br><span class="line">      &lt;<span class="regexp">/FormButtonGroup&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>SchemaForm&gt;</span><br><span class="line">  &lt;<span class="regexp">/Printer&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;App /</span>&gt;, <span class="built_in">document</span>.getElementById(<span class="string">"root"</span>));</span><br></pre></td></tr></table></figure></p>
+<p>查看SchemaForm源码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"ant-form ant-form-horizontal"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>schemaForm渲染为以下结构，为什么不支持添加className???</p>
+</li>
+<li><p>只能使用外层的子代选择器修改样式</p>
+</li>
+<li><p>schemaForm上面没有布局样式</p>
+</li>
+</ol>
+<p>查看<code>&lt;Field name=&quot;aaa&quot; type=&quot;string&quot; title=&quot;字段1&quot; /&gt;</code>源码:基本上就是antd的form表单样式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ant-row ant-form-item"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ant-col ant-form-item-label"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">"字段1"</span>&gt;</span>字段1<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ant-col ant-form-item-control-wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ant-form-item-control"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ant-form-item-children"</span></span></span><br><span class="line"><span class="tag">        &gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"ant-input"</span> <span class="attr">value</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">      /&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看见有部分样式名是唯一的，我们可以根据他们去修改样式:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ant-form</span><span class="selector-class">.ant-form-horizontal</span>&#123;</span><br><span class="line">   &gt; <span class="selector-class">.ant-form-item</span>&#123;</span><br><span class="line">      &gt; <span class="selector-class">.ant-form-item-label</span>&#123;</span><br><span class="line">        <span class="comment">// label样式</span></span><br><span class="line">      &#125;</span><br><span class="line">      &gt; <span class="selector-class">.ant-form-item-control-wrapper</span>&#123;</span><br><span class="line">        <span class="comment">// 表单项样式</span></span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="内联布局">内联布局<a class="post-anchor" href="#内联布局"></a></h4><p><code>&lt;SchemaForm inline&gt;</code>–<code>display:inline-block</code><br><a href="/images/uform1.2.png" data-caption="Image text" data-fancybox="images"><img src="/images/uform1.2.png" alt="Image text"></a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ant-form-inline</span> <span class="selector-class">.ant-form-item</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>可以自动换行</li>
+<li>可以使用<code>wrapperCol={16} labelCol={8}</code>但是有时候样式较为怪异</li>
+</ol>
+<h4 id="layout布局组件">layout布局组件<a class="post-anchor" href="#layout布局组件"></a></h4><p>与默认布局一样,不同的是他可以进行局部布局控制</p>
+<p>设置标题与表单的宽度：<code>wrapperCol={8} labelCol={6}</code>–float布局</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 宽度是用的百分比 */</span></span><br><span class="line"><span class="selector-class">.ant-form-item-label</span>,<span class="selector-class">.ant-form-item-control-wrapper</span>&#123;</span><br><span class="line">  <span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其内部是浮动的，容易导致容器塌陷，解决方法就是在父元素上加一个<code>overflow:hidden</code></p>
+<h4 id="Sticky-按钮吸底">Sticky-按钮吸底<a class="post-anchor" href="#Sticky-按钮吸底"></a></h4><p><code>&lt;FormButtonGroup sticky&gt;&lt;/FormButtonGroup&gt;</code></p>
+<h4 id="nested-嵌套布局">nested-嵌套布局<a class="post-anchor" href="#nested-嵌套布局"></a></h4><blockquote>
+<p>1.FormLayout 局部控制 labelCol/wrapperCol/size/labelAlign/labelTextAlign<br>  2.FormCard 卡片式分离表单模块<br>  3.FormBlock 在卡片内部的区块化分割<br>  4.FormItemGrid 表单字段的局部网格布局能力<br>  5.FormTextBox 表单文本化串联</p>
+</blockquote>
+<p>只要使用到了以上的组件，那么就不适合使用schema对象直接生成表单了，因为要添加很多无意义的结构</p>
+<p>FormCard+FormLayout:<br><a href="/images/uform1.3.png" data-caption="Image text" data-fancybox="images"><img src="/images/uform1.3.png" alt="Image text"></a></p>
+<p>首先普及一个condole.log中的输出类型：</p>
+<blockquote>
+<p>%s for a String value 字符类型<br>  %d or %i for a Integer value 整型<br>  %f for a Floating point number 浮点类型number<br>  %o for an Object hyperlink 对象类型超链接</p>
+</blockquote>
+<p>看下面的嵌套表单:<br><a href="/images/uform1.4.png" data-caption="Image text" data-fancybox="images"><img src="/images/uform1.4.png" alt="Image text"></a></p>
+<ol>
+<li>要横排多个就用<code>FormItemGrid</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;FormItemGrid gutter=&#123;<span class="number">10</span>&#125; cols=&#123;[<span class="number">6</span>, <span class="number">11</span>]&#125;&gt;</span><br><span class="line">  ​&lt;Field name=<span class="string">"ddd1"</span> <span class="keyword">default</span>=&#123;<span class="number">123</span>&#125; type=<span class="string">"number"</span> /&gt;</span><br><span class="line">  ​&lt;Field name=<span class="string">"[startDate,endDate]"</span> type=<span class="string">"daterange"</span> /&gt;​</span><br><span class="line">&lt;<span class="regexp">/FormItemGrid&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当列表项目个数不确定时实现分组的方案:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> keys = [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">"name"</span>,</span><br><span class="line">      type: <span class="string">"string"</span>,</span><br><span class="line">      title: <span class="string">"姓名"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">"password"</span>,</span><br><span class="line">      type: <span class="string">"string"</span>,</span><br><span class="line">      title: <span class="string">"密码"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">"email"</span>,</span><br><span class="line">      type: <span class="string">"string"</span>,</span><br><span class="line">      title: <span class="string">"邮箱"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">"[start,end]"</span>,</span><br><span class="line">      type: <span class="string">"daterange"</span>,</span><br><span class="line">      title: <span class="string">"查询时间"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">"money"</span>,</span><br><span class="line">      type: <span class="string">"number"</span>,</span><br><span class="line">      title: <span class="string">"金额"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ];</span><br><span class="line">&#123;keys</span><br><span class="line">.reduce(<span class="function">(<span class="params">prev, current, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> i = <span class="built_in">window</span>.parseInt(index / <span class="number">3</span>);</span><br><span class="line">  <span class="keyword">if</span> (index % <span class="number">3</span> === <span class="number">0</span>) &#123;</span><br><span class="line">    prev.push([]);</span><br><span class="line">  &#125;</span><br><span class="line">  prev[i].push(current);</span><br><span class="line">  <span class="keyword">return</span> prev;</span><br><span class="line">&#125;, [])</span><br><span class="line">.map(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;FormItemGrid gutter=&#123;<span class="number">10</span>&#125; cols=&#123;[<span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>]&#125; key=&#123;index&#125;&gt;</span><br><span class="line">      &#123;item.map(<span class="function">(<span class="params">innerItem, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Field</span> &#123;<span class="attr">...innerItem</span>&#125; <span class="attr">key</span>=<span class="string">&#123;index&#125;</span> /&gt;</span></span>;</span><br><span class="line">      &#125;)&#125;</span><br><span class="line">    &lt;<span class="regexp">/FormItemGrid&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;)&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>发现会生成这样的表单:<br><a href="/images/uform1.5.png" data-caption="Image text" data-fancybox="images"><img src="/images/uform1.5.png" alt="Image text"></a></p>
+<p>也就是说:只有input默认是设置的占满宽度，其他类型需要自己去设置</p>
+<p>还有一种方式就是直接在默认的布局上面改为Grid布局，也能实现相似的效果,详情见Grid布局篇</p>
+<ol start="2">
+<li>要显示一条横线区分开来就用<code>FormBlock</code></li>
+<li>把表单与文本串联:<code>FormTextBox</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;FormTextBox title=<span class="string">"文本串联"</span> text=<span class="string">"订%s元/票 退%s元/票 改%s元/票"</span>&gt;</span><br><span class="line">  &lt;Field type=<span class="string">"number"</span> <span class="keyword">default</span>=&#123;<span class="number">10</span>&#125; required name=<span class="string">"aa1"</span> /&gt;</span><br><span class="line">  &lt;Field type=<span class="string">"number"</span> <span class="keyword">default</span>=&#123;<span class="number">20</span>&#125; required name=<span class="string">"aa2"</span> /&gt;</span><br><span class="line">  &lt;Field type=<span class="string">"number"</span> <span class="keyword">default</span>=&#123;<span class="number">30</span>&#125; required name=<span class="string">"aa3"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/FormTextBox&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+      <a href="2020/02/19/Grid布局/">Grid布局</a>
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2020/02/14/疫情项目若干思考/">疫情项目若干思考</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2020/02/18/uform之布局篇/">https://missop.github.io/2020/02/18/uform之布局篇/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 

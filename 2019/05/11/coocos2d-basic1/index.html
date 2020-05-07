@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      cocos2d事件绑定与动画机制 - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cocos2d事件绑定"><span class="toc-text">cocos2d事件绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动画"><span class="toc-text">动画</span></a></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">cocos2d事件绑定与动画机制</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2019/05/11</span>
+      </span>
+
+      
+
+      
+
+      
+      <span class="item">
+        <span class="iconfont icon-tag1"></span>
+        <span>
+          
+          
+          <a href="/tags/参考 https://blog.csdn.net/yu452148611/article/details/48141089">参考 https://blog.csdn.net/yu452148611/article/details/48141089</a>
+          
+          
+        </span>
+      </span>
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h2 id="cocos2d事件绑定">cocos2d事件绑定<a class="post-anchor" href="#cocos2d事件绑定"></a></h2><ol>
+<li>事件监听器(cc.EventListener) 封装用户的事件处理逻辑</li>
+</ol>
+<ul>
+<li>触摸事件监听器 (cc.EventListenerTouch)类似于移动的touch事件<br>单点触摸：cc.EventListener.TOUCH_ONE_BY_ONE<br>多点触摸：cc.EventListener.TOUCH_ALL_AT_ONCE<br><code>onTouchBegan,onTouchMoved,onTouchEnded</code></li>
+<li>键盘事件监听器 (cc.EventListenerKeyboard)<br>cc.EventListener.KEYBOARD<br><code>onKeyPressed,onKeyReleased</code></li>
+<li>加速计事件监听器 (cc.EventListenerAcceleration)<br>cc.EventListener.ACCELERATION</li>
+<li>鼠标事件监听器 (cc.EventListenerMouse)<br>cc.EventListener.MOUSE<br><code>onMouseMove,onMouseUp,onMouseDown,onMouseScroll</code><br>针对鼠标操作而设计的游戏，需要判断用户按下什么键，响应滚轮等，这就需要开发者编写鼠标事件监听器了,其他的情况下触摸事件监听器就够用了</li>
+<li>自定义事件监听器 (cc.EventListenerCustom)<br>cc.EventListener.CUSTOM</li>
+</ul>
+<ol start="2">
+<li><p>事件管理器(cc.eventManager) 管理用户注册的事件监听器，根据触发的事件类型分发给相应的事件监听器</p>
+</li>
+<li><p>事件对象(cc.Event) 包含事件相关信息的对象</p>
+</li>
+<li><p>创建事件的流程</p>
+</li>
+</ol>
+<p>1) 创建一个按钮精灵 <code>var btn1 = new cc.Sprite(res.monkey)</code><br>2) 创建事件 <code>var lis1=cc.EventListener.create({
+    //事件类型
+    event:cc.EventListener.TOUCH_ONE_BY_ONE,
+    onTouchBegan:function (touch, event) {},
+    onTouchMoved:function (touch, event) {},
+    onTouchEnded:function (touch, event) {}
+})</code><br>3) 把事件添加到管理器中 <code>// cc.eventManager.addListener(lis1, btn1);</code></p>
+<ol start="5">
+<li>自定义事件—实现观察者模式</li>
+</ol>
+<p>先绑定事件<br><code>var _listener1 = cc.EventListener.create({
+         event: cc.EventListener.CUSTOM,
+         eventName: &quot;game_custom_event1&quot;,
+         callback: function(event){
+             // 可以通过getUserData来设置需要传输的用户自定义数据
+             statusLabel.setString(&quot;Custom event 1 received, &quot; + event.getUserData() + &quot; times&quot;);
+         }
+     });    
+cc.eventManager.addListener(this._listener1, 1);</code><br>然后定义事件触发器<br><code>++this._item1Count;
+    var event = new cc.EventCustom(&quot;game_custom_event1&quot;);
+    event.setUserData(this._item1Count.toString());
+    cc.eventManager.dispatchEvent(event);</code></p>
+<h2 id="动画">动画<a class="post-anchor" href="#动画"></a></h2><p>动画基本步骤<br><code>//定义动画对象
+var sprite = new cc.Sprite(“图片地址..”);
+// 定义动画动作
+var action = cc. scaleBy(0.5, 0.5);
+// 执行动画
+sprite.runAction(action); // 动画执行一次</code></p>
+<ol>
+<li>一次性动画<br><code>var action = cc. scaleBy(0.5, 0.5);</code></li>
+<li>无限执行动画<br><code>action. repeatForever();</code></li>
+<li>翻转动画<br><code>var action2 = action. reverse();</code></li>
+<li>动画顺序执行<br><code>var seq = cc.sequence(action, action2);</code></li>
+<li>多个动画同时执行<br><code>var spawn = cc.spawn(action1, action2);</code></li>
+<li>缓动动画<br><code>var jump = cc.jumpTo(1秒, x, y, 幅度, 次数);
+jump.easing(// 缓动函数);
+A、cc.easeIn(); // 从0开始加速
+B、cc.easeOut(); // 减速到0
+C、cc.easeInOut(); // 先加速后减速</code></li>
+<li>动画回调<br><code>var cb = cc.callFunc(回调处理函数, 函数的this对象);
+var fade = cc.fadeOut(2); // 2秒后fadeOut
+var action = cc.sequence(fade, cb);
+sprite.runAction(action); // fade执行完后，执行 cb</code></li>
+</ol>
+
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+      <a href="2019/05/26/webpack-loader/">从loader到ast树</a>
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2019/05/07/webstorm-improve/">提升webstorm性能</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2019/05/11/coocos2d-basic1/">https://missop.github.io/2019/05/11/coocos2d-basic1/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 

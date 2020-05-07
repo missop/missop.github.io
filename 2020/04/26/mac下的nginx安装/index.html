@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      mac下的nginx安装 - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#mac-下的-nginx-安装"><span class="toc-text">mac 下的 nginx 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-集成安装"><span class="toc-text">brew 集成安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew覆盖编译安装"><span class="toc-text">brew覆盖编译安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译安装–巨坑"><span class="toc-text">编译安装–巨坑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建快捷命令"><span class="toc-text">创建快捷命令</span></a></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">mac下的nginx安装</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2020/04/26</span>
+      </span>
+
+      
+
+      
+
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h3 id="mac-下的-nginx-安装">mac 下的 nginx 安装<a class="post-anchor" href="#mac-下的-nginx-安装"></a></h3><p>有两条路:</p>
+<ol>
+<li><p>brew 集成安装</p>
+</li>
+<li><p>编译安装</p>
+</li>
+</ol>
+<p>下面分别介绍两种安装方式</p>
+<h3 id="brew-集成安装">brew 集成安装<a class="post-anchor" href="#brew-集成安装"></a></h3><p>brew 类似于 centOS 的 yum 以及 Ubantu 的 apt-get,是 mac 的必备神器</p>
+<p>然而 brew 的安装并不是一帆风顺的:</p>
+<p>第一步：通过命令删除之前的 brew、创建一个新的 Homebrew 文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/local/Homebrew</span><br><span class="line"></span><br><span class="line">sudo mkdir /usr/local/Homebrew</span><br></pre></td></tr></table></figure>
+<p>第二步：git 克隆（速度还是不好看文章尾部的扩展说明-1）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git <span class="built_in">clone</span> https://mirrors.ustc.edu.cn/brew.git /usr/<span class="built_in">local</span>/Homebrew</span><br></pre></td></tr></table></figure>
+<p>第三步：删除原有的 brew，创建一个新的</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -f /usr/<span class="built_in">local</span>/bin/brew</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/Homebrew/bin/brew /usr/<span class="built_in">local</span>/bin/brew</span><br></pre></td></tr></table></figure>
+<p>第四步：创建 core 文件夹、克隆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line"></span><br><span class="line">sudo git clone https://mirrors.ustc.edu.cn/homebrew-core.git /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core</span><br></pre></td></tr></table></figure>
+<p>第五步：删除之前 brew 环境，重新创建：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/local/var/homebrew/</span><br><span class="line"></span><br><span class="line">sudo mkdir -p /usr/local/var/homebrew</span><br><span class="line"></span><br><span class="line">sudo chown -R $(whoami) /usr/local/var/homebrew</span><br></pre></td></tr></table></figure>
+<p>最后一步：获取权限 运行更新（三句话分开运行）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(whoami) /usr/<span class="built_in">local</span>/Homebrew</span><br><span class="line"></span><br><span class="line">HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles</span><br><span class="line"></span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
+<p>最后设置：设置环境变量，再运行下面两句后，重启终端：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>增加文件操作权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(shoami) /usr/local/var/homebrew</span><br></pre></td></tr></table></figure>
+<p>如果没有文件则手动创建文件，然后修改权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/local/var/homebrew</span><br><span class="line"></span><br><span class="line">sudo chown -R $(shoami) /usr/local/var/homebrew</span><br></pre></td></tr></table></figure>
+<p>镜像源三选一:</p>
+<p><a href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/</a></p>
+<p><a href="https://mirrors.aliyun.com/homebrew/" target="_blank" rel="noopener">https://mirrors.aliyun.com/homebrew/</a></p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/</a></p>
+<p>最后：<code>brew install nginx</code></p>
+<p>brew的nginx命令:</p>
+<p><code>brew services start nginx</code></p>
+<p><code>brew services stop nginx</code></p>
+<h3 id="brew覆盖编译安装">brew覆盖编译安装<a class="post-anchor" href="#brew覆盖编译安装"></a></h3><p>由于之前编译安装失败，故采用此方法安装，还是有一些坑要踩</p>
+<p>brew update报成功并不代表成功</p>
+<p>brew doctor发现失败，马上删除之前的再执行一下就可以了</p>
+<p>brew link openssl –force 覆盖之前不成功的openssl安装</p>
+<h3 id="编译安装–巨坑">编译安装–巨坑<a class="post-anchor" href="#编译安装–巨坑"></a></h3><p>需要下载四个文件，当然核心是 nginx，其他自选</p>
+<ul>
+<li><p>nginx</p>
+</li>
+<li><p>pcre</p>
+</li>
+<li><p>openssl(https必备)</p>
+</li>
+<li><p>zlib</p>
+</li>
+</ul>
+<p>基本都是下载完成之后./configure或者./config编译</p>
+<p>然后make&amp;make install安装</p>
+<p>这样安装之后会出现如下问题</p>
+<ol>
+<li>nginx找不到ssl报如下错误,网上的方法几乎一样，都无法解决问题</li>
+</ol>
+<p>unknown directive “ssl”</p>
+<ol start="2">
+<li>nginx,openssl的快捷命令需要自己设置</li>
+</ol>
+<h3 id="创建快捷命令">创建快捷命令<a class="post-anchor" href="#创建快捷命令"></a></h3><p>sudo ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx</p>
+
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+      <a href="2020/04/27/nginx配置https/">nginx配置https</a>
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2020/04/12/SFF是个什么鬼/">SFF是个什么鬼</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2020/04/26/mac下的nginx安装/">https://missop.github.io/2020/04/26/mac下的nginx安装/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      webpack-proxy - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxy基本配置"><span class="toc-text">proxy基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pathRewrite"><span class="toc-text">pathRewrite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onError错误处理"><span class="toc-text">onError错误处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onProxyRes响应头"><span class="toc-text">onProxyRes响应头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onProxyReq请求头"><span class="toc-text">onProxyReq请求头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#socket相关配置"><span class="toc-text">socket相关配置</span></a></li></ol></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">webpack-proxy</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2020/01/21</span>
+      </span>
+
+      
+
+      
+
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h3 id="前言">前言<a class="post-anchor" href="#前言"></a></h3><p>开发环境经常需要设置代理，这样才能在本地跨域调接口</p>
+<p>但是webpack的代理配置有许多，如果不搞清楚就需要慢慢的去查找每个配置，很费时间，<br>于是我打算总结一下webpack的代理配置</p>
+<h3 id="proxy基本配置">proxy基本配置<a class="post-anchor" href="#proxy基本配置"></a></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">        <span class="string">'/api'</span>: &#123;</span><br><span class="line">            target: <span class="string">'http://localhost:3000'</span>,</span><br><span class="line">            changeOrigin: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的配置之后：axios.get(‘/api’)==&gt;请求<a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></p>
+<p>————后面在上面的配置下分条论述————-</p>
+<p>路径修改,前面匹配的是axios请求地址，后面是实际路由</p>
+<h4 id="pathRewrite">pathRewrite<a class="post-anchor" href="#pathRewrite"></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rewrite path</span></span><br><span class="line">pathRewrite: &#123;<span class="string">'^/old/api'</span> : <span class="string">'/new/api'</span>&#125;</span><br><span class="line"><span class="comment">// axios.get('/old/api/list') ==&gt; http://localhost:3000/new/api/list</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// custom rewriting</span></span><br><span class="line">pathRewrite: <span class="function"><span class="keyword">function</span> (<span class="params">path, req</span>) </span>&#123; <span class="keyword">return</span> path.replace(<span class="string">'/api'</span>, <span class="string">'/base/api'</span>) &#125;</span><br></pre></td></tr></table></figure>
+<p>————proxy的详细配置则在<code>http-proxy-middleware</code>中————</p>
+<p>参考地址：<a href="https://github.com/chimurai/http-proxy-middleware" target="_blank" rel="noopener">https://github.com/chimurai/http-proxy-middleware</a></p>
+<h4 id="onError错误处理">onError错误处理<a class="post-anchor" href="#onError错误处理"></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">onError(err, req, res) &#123;</span><br><span class="line">    <span class="comment">// 出现错误之后返回500</span></span><br><span class="line">    res.writeHead(<span class="number">500</span>, &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(</span><br><span class="line">        <span class="string">'Something went wrong. And we are reporting a custom error message.'</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="onProxyRes响应头">onProxyRes响应头<a class="post-anchor" href="#onProxyRes响应头"></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onProxyRes(proxyRes, req, res) &#123;</span><br><span class="line">  proxyRes.headers[<span class="string">'x-added'</span>] = <span class="string">'foobar'</span>; <span class="comment">// add new header to response</span></span><br><span class="line">  <span class="keyword">delete</span> proxyRes.headers[<span class="string">'x-removed'</span>]; <span class="comment">// remove header from response</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="onProxyReq请求头">onProxyReq请求头<a class="post-anchor" href="#onProxyReq请求头"></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有时候我们需要设置登陆信息头才能请求接口</span></span><br><span class="line">onProxyReq(proxyReq, req, res) &#123;</span><br><span class="line">  <span class="comment">// add custom header to request</span></span><br><span class="line">  proxyReq.setHeader(<span class="string">'x-added'</span>, <span class="string">'foobar'</span>);</span><br><span class="line">  <span class="comment">// or log the req</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="socket相关配置">socket相关配置<a class="post-anchor" href="#socket相关配置"></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// socket设置</span></span><br><span class="line">onProxyReqWs(proxyReq, req, socket, options, head) &#123;</span><br><span class="line">  <span class="comment">// add custom header</span></span><br><span class="line">  proxyReq.setHeader(<span class="string">'X-Special-Proxy-Header'</span>, <span class="string">'foobar'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onOpen(proxySocket) &#123;</span><br><span class="line">  <span class="comment">// listen for messages coming FROM the target here</span></span><br><span class="line">  proxySocket.on(<span class="string">'data'</span>, hybiParseAndLogMessage);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onClose(res, socket, head) &#123;</span><br><span class="line">  <span class="comment">// view disconnected websocket connections</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Client disconnected'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+      <a href="2020/01/25/每周一个手写代码-setTimeout/">每周一个手写代码(hack setTimeout)</a>
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2020/01/13/uform-1.0版本/">uform@1.0</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2020/01/21/webpack-proxy/">https://missop.github.io/2020/01/21/webpack-proxy/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 
