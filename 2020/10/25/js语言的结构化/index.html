@@ -16,13 +16,18 @@
     <meta name="description" content>
     
     <title>
-      归档 - Hexo
+      js语言的结构化 - Hexo
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/style/style.css">
   </head>
   <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法元素"><span class="toc-text">语法元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#标识符-identifier"><span class="toc-text">标识符(identifier)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表达式"><span class="toc-text">表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始器"><span class="toc-text">初始器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语句"><span class="toc-text">语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a></li></ol></li></ol>
+    </div>
     
     <div id="fixed-menu-wrap">
       <span class="iconfont icon-sousuo search-box menu-reset"></span>
@@ -57,7 +62,7 @@
           首页
         </a>
         
-        <a href="/archives" class="current">
+        <a href="/archives" class>
           归档
         </a>
         
@@ -111,7 +116,7 @@
             首页
           </a>
           
-          <a href="/archives" class="current">
+          <a href="/archives" class>
             归档
           </a>
           
@@ -160,115 +165,103 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
+        <article class="post-entry">
+  <div class="header">
     
-        <div class="title">
-            归档 
-            
-        </div>
-    
+    <div class="title">js语言的结构化</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2020/10/25</span>
+      </span>
 
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/archives/2019">
-                2019
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/2019/05/07/webstorm-improve/" title="提升webstorm性能">
-                <span>2019/05/07</span>
-                <span>提升webstorm性能</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/05/01/loadpage/" title="页面优化之懒加载与预加载">
-                <span>2019/05/01</span>
-                <span>页面优化之懒加载与预加载</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/05/01/cocos2d-firstday/" title="cocos2d-firstday">
-                <span>2019/05/01</span>
-                <span>cocos2d-firstday</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/04/29/basicsort-way/" title="排序算法解析">
-                <span>2019/04/29</span>
-                <span>排序算法解析</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/03/22/job-interview1/" title="面试小题">
-                <span>2019/03/22</span>
-                <span>面试小题</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/03/17/consoleAPI/" title="console的用法">
-                <span>2019/03/17</span>
-                <span>console的用法</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/03/17/calculatejs/" title="calculatejs">
-                <span>2019/03/17</span>
-                <span>calculatejs</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/03/16/jenkins-config/" title="jenkins配置">
-                <span>2019/03/16</span>
-                <span>jenkins配置</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2019/03/12/css-calssical-layout/" title="经典CSS2布局">
-                <span>2019/03/12</span>
-                <span>经典CSS2布局</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
       
-<div class="paginator">
-    <a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
-</div>
-</div>
 
+      
+
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <h1 id="语法元素">语法元素<a class="post-anchor" href="#语法元素"></a></h1><p>语法元素的组织含义:</p>
+<table><br>    <tr><br>        <th>元素</th><br>        <th>物理形态</th><br>        <th>静态</th><br>        <th>动态</th><br>    </tr><br>    <tr><br>        <td>标识符</td><br>        <td></td><br>        <td>let/const/var<br>函数声明<br>类声明</td><br>        <td>非严格模式下的var<br>非严格模式下的类声明</td><br>    </tr><br>    <tr><br>        <td>表达式</td><br>        <td>模板字符串</td><br>        <td>值<br>箭头函数体</td><br>        <td>通过eval执行表达式语句实现</td><br>    </tr><br>    <tr><br>        <td>语句</td><br>        <td>.js文件</td><br>        <td>块与块级作用域</td><br>        <td>eval()</td><br>    </tr><br>    <tr><br>        <td>模块</td><br>        <td>.mjs文件</td><br>        <td>import/export<br>require</td><br>        <td>import().then()</td><br>    </tr><br></table>
+
+<h2 id="标识符-identifier">标识符(identifier)<a class="post-anchor" href="#标识符-identifier"></a></h2><p>源代码文本 = 空白字符 + 词法记号(Tokens)序列</p>
+<p>词法记号分为两类：</p>
+<ol>
+<li><p>确定书写格式的：语言预设的标点符号和部分用作保留字的标识符名</p>
+</li>
+<li><p>由用户定义的标识符，字面量，模板等</p>
+</li>
+</ol>
+<h2 id="表达式">表达式<a class="post-anchor" href="#表达式"></a></h2><p>名字与值之间的计算</p>
+<p>！表达式不能独立于语句而存在,即使是单个表达式也成为表达式语句</p>
+<h3 id="字面量">字面量<a class="post-anchor" href="#字面量"></a></h3><ol>
+<li><p>对象：{…}</p>
+</li>
+<li><p>数组：[…]</p>
+</li>
+<li><p>正则：/…/</p>
+</li>
+</ol>
+<h3 id="初始器">初始器<a class="post-anchor" href="#初始器"></a></h3><p>字面量不包含运算过程而初始器包括</p>
+<p>5种字面量语法在出现（编译期）的同时就是确知的：null、true/false、数值、字符串、正则表达式</p>
+<p>而数组与对象则不行，反而必须是一个运算的结果</p>
+<h2 id="语句">语句<a class="post-anchor" href="#语句"></a></h2><p>声明语句与非声明语句</p>
+<h2 id="模块">模块<a class="post-anchor" href="#模块"></a></h2>
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2020/08/09/micro-frontend2/">micro-frontend(二) qiankun</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2020/10/25/js语言的结构化/">https://missop.github.io/2020/10/25/js语言的结构化/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
         <footer>
           <div class="copyright">
             ©2020
