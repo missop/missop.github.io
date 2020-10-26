@@ -16,7 +16,7 @@
     <meta name="description" content>
     
     <title>
-      js语言的结构化 - Hexo
+          Hexo
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -26,7 +26,7 @@
     
     <div id="post-toc" class="animated hiddenToc hide">
       <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法元素"><span class="toc-text">语法元素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#标识符-identifier"><span class="toc-text">标识符(identifier)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表达式"><span class="toc-text">表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始器"><span class="toc-text">初始器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语句"><span class="toc-text">语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-js基础"><span class="toc-text">tags: js基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的行为"><span class="toc-text">函数的行为</span></a></li></ol>
     </div>
     
     <div id="fixed-menu-wrap">
@@ -168,7 +168,7 @@
         <article class="post-entry">
   <div class="header">
     
-    <div class="title">js语言的结构化</div>
+    <div class="title"></div>
     <div class="meta">
       <span class="item">
         <span class="iconfont icon-time-circle"></span>
@@ -184,32 +184,33 @@
     <div>
     </div>
   </div>
-  <h1 id="语法元素">语法元素<a class="post-anchor" href="#语法元素"></a></h1><p>语法元素的组织含义:</p>
-<table><br>    <tr><br>        <th>元素</th><br>        <th>物理形态</th><br>        <th>静态</th><br>        <th>动态</th><br>    </tr><br>    <tr><br>        <td>标识符</td><br>        <td></td><br>        <td>let/const/var<br>函数声明<br>类声明</td><br>        <td>非严格模式下的var<br>非严格模式下的类声明</td><br>    </tr><br>    <tr><br>        <td>表达式</td><br>        <td>模板字符串</td><br>        <td>值<br>箭头函数体</td><br>        <td>通过eval执行表达式语句实现</td><br>    </tr><br>    <tr><br>        <td>语句</td><br>        <td>.js文件</td><br>        <td>块与块级作用域</td><br>        <td>eval()</td><br>    </tr><br>    <tr><br>        <td>模块</td><br>        <td>.mjs文件</td><br>        <td>import/export<br>require</td><br>        <td>import().then()</td><br>    </tr><br></table>
+  <hr>
+<p>title: 函数<br>date: 2020-10-25 22:24:14</p>
+<h2 id="tags-js基础">tags: js基础<a class="post-anchor" href="#tags-js基础"></a></h2><h2 id="函数的行为">函数的行为<a class="post-anchor" href="#函数的行为"></a></h2><p>当有默认值或者有剩余参数时实参个数将不起作用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length,f.length)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment">// 3 0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a=<span class="number">1</span>,b,c</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length,f.length)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment">// 3 0</span></span><br></pre></td></tr></table></figure>
+<p>当f()开始调用，js会在函数上下文的预处理之后将<code>calleeContext</code>作为可执行帧推到<code>执行上下文栈</code>的栈顶=》入栈<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prev</span>(<span class="params"></span>)</span>&#123; f(x,y,z) &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// f调用的形式代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prev</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 切换执行上下文</span></span><br><span class="line">  <span class="keyword">var</span> callerContext = _pick_running_excution_context()</span><br><span class="line">  <span class="keyword">var</span> celleeContext = _Prepare()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 处理thisArg</span></span><br><span class="line">  _bindThis(f,celleeContext,thisArg)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用f(x,y,z)</span></span><br><span class="line">  <span class="keyword">var</span> result = _EvaluateBody(f, args)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 从执行上下文栈溢出f()的callerContext并恢复到prev()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由于js引擎总是从<code>执行上下文栈</code>顶端取可执行帧来执行代码，所以入栈也就相当于切换执行指针</p>
+<p>不过ECMAScript规范已经移除了通过下面的手段来访问这个栈的大多数说明</p>
+<ul>
+<li>arguments.callee</li>
+<li>aFunction.caller</li>
+<li>aFunction.arguments</li>
+</ul>
+<p>隐式调用<code>console.log</code>123<code>;</code></p>
+<p>语法解析层面会将此代码解析为一个函数的调用,由于模板字面量所以参数在语法分析阶段就完成了它作为参数的预处理过程。</p>
+<p>真正执行这段代码时，引擎从环境中取出了这个参数并执行一次，由于上下文不同而得到参数值的一个全新副本：对实际参数求值并绑定给形参</p>
+<p>最后按照约定，引擎将这个副本作为一个称为、调用点数组（带有一个raw属性的array-like对象）、的参数传递给左侧函数已完成函数调用运算传入foo()</p>
+<p>类似隐式调用情况还包括</p>
+<ul>
+<li>函数作为属性读取器,属性存取将隐式调用该函数</li>
+<li>.bind()</li>
+<li>Proxy创建原函数代理对象</li>
+<li>new 操作符</li>
+<li>将函数赋给对象的符号属性,Symbol.hasInstance,Symbol.iterator,在对象相应行为触发时调用该函数</li>
+</ul>
+<p>callee:我是谁<br>caller:谁调用我，调用栈</p>
+<p>函数调用过程<br>预处理<br>绑定this<br>执行代码</p>
 
-<h2 id="标识符-identifier">标识符(identifier)<a class="post-anchor" href="#标识符-identifier"></a></h2><p>源代码文本 = 空白字符 + 词法记号(Tokens)序列</p>
-<p>词法记号分为两类：</p>
-<ol>
-<li><p>确定书写格式的：语言预设的标点符号和部分用作保留字的标识符名</p>
-</li>
-<li><p>由用户定义的标识符，字面量，模板等</p>
-</li>
-</ol>
-<h2 id="表达式">表达式<a class="post-anchor" href="#表达式"></a></h2><p>名字与值之间的计算</p>
-<p>！表达式不能独立于语句而存在,即使是单个表达式也成为表达式语句</p>
-<h3 id="字面量">字面量<a class="post-anchor" href="#字面量"></a></h3><ol>
-<li><p>对象：{…}</p>
-</li>
-<li><p>数组：[…]</p>
-</li>
-<li><p>正则：/…/</p>
-</li>
-</ol>
-<h3 id="初始器">初始器<a class="post-anchor" href="#初始器"></a></h3><p>字面量不包含运算过程而初始器包括</p>
-<p>5种字面量语法在出现（编译期）的同时就是确知的：null、true/false、数值、字符串、正则表达式</p>
-<p>而数组与对象则不行，反而必须是一个运算的结果</p>
-<h2 id="语句">语句<a class="post-anchor" href="#语句"></a></h2><p>声明语句与非声明语句</p>
-<h2 id="模块">模块<a class="post-anchor" href="#模块"></a></h2>
 
   
   <div class="post-reward">
@@ -235,12 +236,10 @@
   <div class="post-guide">
     <div class="item left">
       
-      <a href="2020/10/25/函数/"></a>
-      
     </div>
     <div class="item right">
       
-      <a href="2020/08/09/micro-frontend2/">micro-frontend(二) qiankun</a>
+      <a href="2020/10/25/js语言的结构化/">js语言的结构化</a>
       
     </div>
   </div>
@@ -252,7 +251,7 @@
       本文作者：<a href="https://missop.github.io">missop</a>
     </div>
     <div class="link">
-      永久链接：<a href="https://missop.github.io/2020/10/25/js语言的结构化/">https://missop.github.io/2020/10/25/js语言的结构化/</a>
+      永久链接：<a href="https://missop.github.io/2020/10/25/函数/">https://missop.github.io/2020/10/25/函数/</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
