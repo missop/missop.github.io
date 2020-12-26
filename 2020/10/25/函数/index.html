@@ -16,7 +16,7 @@
     <meta name="description" content>
     
     <title>
-          Hexo
+      函数 - Hexo
     </title>
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
@@ -26,7 +26,7 @@
     
     <div id="post-toc" class="animated hiddenToc hide">
       <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-js基础"><span class="toc-text">tags: js基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的行为"><span class="toc-text">函数的行为</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的行为"><span class="toc-text">函数的行为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li></ol>
     </div>
     
     <div id="fixed-menu-wrap">
@@ -168,7 +168,7 @@
         <article class="post-entry">
   <div class="header">
     
-    <div class="title"></div>
+    <div class="title">函数</div>
     <div class="meta">
       <span class="item">
         <span class="iconfont icon-time-circle"></span>
@@ -180,17 +180,27 @@
       
 
       
+      <span class="item">
+        <span class="iconfont icon-tag1"></span>
+        <span>
+          
+          
+          <a href="/tags/js基础">js基础</a>
+          
+          
+        </span>
+      </span>
+      
     </div>
     <div>
     </div>
   </div>
-  <hr>
-<p>title: 函数<br>date: 2020-10-25 22:24:14</p>
-<h2 id="tags-js基础">tags: js基础<a class="post-anchor" href="#tags-js基础"></a></h2><h2 id="函数的行为">函数的行为<a class="post-anchor" href="#函数的行为"></a></h2><p>当有默认值或者有剩余参数时实参个数将不起作用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length,f.length)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment">// 3 0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a=<span class="number">1</span>,b,c</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length,f.length)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment">// 3 0</span></span><br></pre></td></tr></table></figure>
-<p>当f()开始调用，js会在函数上下文的预处理之后将<code>calleeContext</code>作为可执行帧推到<code>执行上下文栈</code>的栈顶=》入栈<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prev</span>(<span class="params"></span>)</span>&#123; f(x,y,z) &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// f调用的形式代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prev</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 切换执行上下文</span></span><br><span class="line">  <span class="keyword">var</span> callerContext = _pick_running_excution_context()</span><br><span class="line">  <span class="keyword">var</span> celleeContext = _Prepare()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 处理thisArg</span></span><br><span class="line">  _bindThis(f,celleeContext,thisArg)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用f(x,y,z)</span></span><br><span class="line">  <span class="keyword">var</span> result = _EvaluateBody(f, args)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 从执行上下文栈溢出f()的callerContext并恢复到prev()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>由于js引擎总是从<code>执行上下文栈</code>顶端取可执行帧来执行代码，所以入栈也就相当于切换执行指针</p>
-<p>不过ECMAScript规范已经移除了通过下面的手段来访问这个栈的大多数说明</p>
+  <h2 id="函数的行为">函数的行为<a class="post-anchor" href="#函数的行为"></a></h2><p>当有默认值或者有剩余参数时实参个数将不起作用,非简单参数是指参数有默认值或者使用剩余参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length, f.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="comment">// 3 0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a = <span class="number">1</span>, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length, f.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="comment">// 3 0</span></span><br></pre></td></tr></table></figure>
+<p>当 f()开始调用，js 会在函数上下文的预处理之后将<code>calleeContext</code>作为可执行帧推到<code>执行上下文栈</code>的栈顶=》入栈</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prev</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  f(x, y, z);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// f调用的形式代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prev</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 切换执行上下文</span></span><br><span class="line">  <span class="keyword">var</span> callerContext = _pick_running_excution_context();</span><br><span class="line">  <span class="keyword">var</span> celleeContext = _Prepare();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 处理thisArg</span></span><br><span class="line">  _bindThis(f, celleeContext, thisArg);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用f(x,y,z)</span></span><br><span class="line">  <span class="keyword">var</span> result = _EvaluateBody(f, args);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 从执行上下文栈溢出f()的callerContext并恢复到prev()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于 js 引擎总是从<code>执行上下文栈</code>顶端取可执行帧来执行代码，所以入栈也就相当于切换执行指针</p>
+<p>不过 ECMAScript 规范已经移除了通过下面的手段来访问这个栈的大多数说明</p>
 <ul>
 <li>arguments.callee</li>
 <li>aFunction.caller</li>
@@ -199,17 +209,28 @@
 <p>隐式调用<code>console.log</code>123<code>;</code></p>
 <p>语法解析层面会将此代码解析为一个函数的调用,由于模板字面量所以参数在语法分析阶段就完成了它作为参数的预处理过程。</p>
 <p>真正执行这段代码时，引擎从环境中取出了这个参数并执行一次，由于上下文不同而得到参数值的一个全新副本：对实际参数求值并绑定给形参</p>
-<p>最后按照约定，引擎将这个副本作为一个称为、调用点数组（带有一个raw属性的array-like对象）、的参数传递给左侧函数已完成函数调用运算传入foo()</p>
+<p>最后按照约定，引擎将这个副本作为一个称为、调用点数组（带有一个 raw 属性的 array-like 对象）、的参数传递给左侧函数已完成函数调用运算传入 foo()</p>
 <p>类似隐式调用情况还包括</p>
 <ul>
 <li>函数作为属性读取器,属性存取将隐式调用该函数</li>
 <li>.bind()</li>
-<li>Proxy创建原函数代理对象</li>
+<li>Proxy 创建原函数代理对象</li>
 <li>new 操作符</li>
 <li>将函数赋给对象的符号属性,Symbol.hasInstance,Symbol.iterator,在对象相应行为触发时调用该函数</li>
 </ul>
 <p>callee:我是谁<br>caller:谁调用我，调用栈</p>
-<p>函数调用过程<br>预处理<br>绑定this<br>执行代码</p>
+<p>函数调用过程<br>预处理<br>绑定 this<br>执行代码</p>
+<h2 id="闭包">闭包<a class="post-anchor" href="#闭包"></a></h2><p>记录函数实例在运行期的<code>可访问标识符</code>的结构</p>
+<p>一个函数实例的一次执行就会带来一个新的执行期作用域=&gt;闭包</p>
+<p>而在执行代码看来，它就是执行期的作用域链，因其外部引用指向它被调用时的作用域</p>
+<p>函数实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo的函数实例有两个，f1和f2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">myFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f1 = foo();</span><br><span class="line"><span class="keyword">var</span> f2 = foo();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同一个函数中的所有子函数访问相同值的upvalue</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyFoo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> data = <span class="number">100</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">func_1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    data = data * <span class="number">5</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">func_n</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  func_1();</span><br><span class="line">  func_n();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyFoo();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个闭包同时存在</span></span><br><span class="line"><span class="keyword">var</span> checker;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (checker) &#123;</span><br><span class="line">    checker();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"do MyFunc"</span> + str);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> str = <span class="string">"test."</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!checker) &#123;</span><br><span class="line">    checker = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"do MyFunc"</span> + str);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">arguments</span>.callee;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myFunc()();</span><br></pre></td></tr></table></figure>
+<p>函数被重写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  F = num + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">F(<span class="number">10</span>) <span class="comment">// 11</span></span><br></pre></td></tr></table></figure>
+<p>函数表达式的特殊性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> msg =</span><br><span class="line">  (<span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (myFunc = <span class="keyword">typeof</span> myFunc);</span><br><span class="line">  &#125;)(<span class="number">10</span>) +</span><br><span class="line">  <span class="string">", and upvalue's type is :"</span> +</span><br><span class="line">  <span class="keyword">typeof</span> myFunc;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// "function, and upvalue's type is :function"</span></span><br></pre></td></tr></table></figure></p>
+<p>js在为函数表达式构建闭包时使用了双层作用域，外层作用域称为函数环境，其中只有一个简单的标识符,之后才是<br>该函数的作用域</p>
+<p>const/let声明变量时，标识符时直接创建在词法作用域中的，与global对象无关<br>使用var声明的变量会加入[[varNames]]列表，[[varNames]]用来表明那些声明过的变量名与函数名</p>
+<p>对象闭包<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>:<span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">with</span>(obj)&#123;</span><br><span class="line">  a++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
 
   
@@ -235,6 +256,8 @@
   
   <div class="post-guide">
     <div class="item left">
+      
+      <a href="2020/12/26/ts-day1/">TS是最好的语言（一）</a>
       
     </div>
     <div class="item right">

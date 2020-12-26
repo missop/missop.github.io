@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <title>
+      TS是最好的语言（一） - Hexo
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-router"><span class="toc-text">react-router</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#小技巧"><span class="toc-text">小技巧</span></a></li></ol></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search">
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg">
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class>
+          首页
+        </a>
+        
+        <a href="/archives" class>
+          归档
+        </a>
+        
+        <a href="/categories" class>
+          分类
+        </a>
+        
+        <a href="/tags" class>
+          标签
+        </a>
+        
+        <a href="/friends" class>
+          友链
+        </a>
+        
+        <a href="/about" class>
+          关于
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">missop</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">missop</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class>
+            首页
+          </a>
+          
+          <a href="/archives" class>
+            归档
+          </a>
+          
+          <a href="/categories" class>
+            分类
+          </a>
+          
+          <a href="/tags" class>
+            标签
+          </a>
+          
+          <a href="/friends" class>
+            友链
+          </a>
+          
+          <a href="/about" class>
+            关于
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/missop" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+            
+            <a href="https://www.facebook.com/missop/" target="_block">
+              <span class="iconfont icon-facebook"></span>
+            </a>
+            
+            <a href="https://www.instagram.com/missop/" target="_block">
+              <span class="iconfont icon-instagram"></span>
+            </a>
+             
+            <a href="/atom.xml" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+  <div class="header">
+    
+    <div class="title">TS是最好的语言（一）</div>
+    <div class="meta">
+      <span class="item">
+        <span class="iconfont icon-time-circle"></span>
+        <span>2020/12/26</span>
+      </span>
+
+      
+
+      
+
+      
+      <span class="item">
+        <span class="iconfont icon-tag1"></span>
+        <span>
+          
+          
+          <a href="/tags/ts">ts</a>
+          
+          
+        </span>
+      </span>
+      
+    </div>
+    <div>
+    </div>
+  </div>
+  <p><a href="/images/tsbg.jpg" data-caption="Image text" data-fancybox="images"><img src="/images/tsbg.jpg" alt="Image text"></a></p>
+<h2 id="前言">前言<a class="post-anchor" href="#前言"></a></h2><p>都快 2021 年了,TS 早就不是什么新技术，而是前端需要掌握的硬核知识，所以今天就从一些库入手开始探究 TS 的应用以及一些小技巧</p>
+<p>看本篇文章之前需要的一些基础知识：</p>
+<ol>
+<li>JS 基础知识</li>
+<li>熟悉 react-router</li>
+<li>TS 官方文档至少看一遍，TS 的基本的类型了熟于心</li>
+</ol>
+<p>如果没有看过 TS 官方文档的话，可以先去看官方文档，也可以试玩一下 TS 编译器,链接如下：</p>
+<blockquote>
+<p><a href="https://www.tslang.cn/docs/home.html" target="_blank" rel="noopener">https://www.tslang.cn/docs/home.html</a></p>
+</blockquote>
+<h2 id="react-router">react-router<a class="post-anchor" href="#react-router"></a></h2><p>从古老的用法开始：</p>
+<p>以前使用 react-router 中的 history 或者获取路由参数必须先将组件用 withRouter 包装，但是如果我们不声明 App 参数类型那么我们只能从参数中取到路由参数:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例一</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; withRouter &#125; <span class="keyword">from</span> <span class="string">"react-router"</span>;</span><br><span class="line"><span class="keyword">const</span> App = withRouter(<span class="function">(<span class="params">&#123; history, match, a &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ... a取不到，会报错</span></span><br><span class="line">  <span class="comment">// 类型“RouteComponentProps&lt;any, StaticContext, unknown&gt; &amp; &#123; children?: ReactNode; &#125;”上不存在属性“a”。ts(2339)</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这一堆报错我们很懵先不管他，我们直接声明 App 的参数类型：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例二</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; withRouter &#125; <span class="keyword">from</span> <span class="string">"react-router"</span>;</span><br><span class="line"><span class="keyword">interface</span> IProps &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> App = withRouter(<span class="function">(<span class="params">&#123;&#125;: IProps</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//  类型“(&#123;&#125;: IProps) =&gt; any”的参数不能赋给类型“ComponentClass&lt;RouteComponentProps&lt;any,</span></span><br><span class="line">  <span class="comment">//  StaticContext, unknown&gt;, any&gt; | FunctionComponent&lt;RouteComponentProps&lt;any, StaticContext,</span></span><br><span class="line">  <span class="comment">//  unknown&gt;&gt; | (FunctionComponent&lt;...&gt; &amp; ComponentClass&lt;...&gt;) | (ComponentClass&lt;...&gt; &amp;</span></span><br><span class="line">  <span class="comment">//  FunctionComponent&lt;...&gt;)”的参数。</span></span><br><span class="line">  <span class="comment">//  不能将类型“(&#123;&#125;: IProps) =&gt; any”分配给类型“FunctionComponent&lt;RouteComponentProps&lt;any, StaticContext, unknown&gt;&gt;”。</span></span><br><span class="line">  <span class="comment">//  参数“__0”和“props” 的类型不兼容。</span></span><br><span class="line">  <span class="comment">//  类型 "RouteComponentProps&lt;any, StaticContext, unknown&gt; &amp; &#123; children?: ReactNode; &#125;" 中缺少属性 "a"，但类型 "IProps" 中需要该属性。</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>即使什么都不写也是一堆报错，😨，此时真的不知道怎么办，TS 不知道怎么办的时候就点进去看代码,发现 withRouter 是有两个泛型参数的：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RouteComponentProps是从react-router中声明的router参数类型，而ComponentType就是我们熟知的class组件或者函数组件,返回值我们先不管</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">withRouter</span>&lt;</span></span><br><span class="line"><span class="function">  <span class="title">P</span> <span class="title">extends</span> <span class="title">RouteComponentProps</span>&lt;<span class="title">any</span>&gt;,</span></span><br><span class="line"><span class="function">  <span class="title">C</span> <span class="title">extends</span> <span class="title">React</span>.<span class="title">ComponentType</span>&lt;<span class="title">P</span>&gt;</span></span><br><span class="line"><span class="function">&gt;(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  component: C &amp; React.ComponentType&lt;P&gt;</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">React</span>.<span class="title">ComponentClass</span>&lt;</span></span><br><span class="line"><span class="function">  <span class="title">Omit</span>&lt;<span class="title">P</span>, <span class="title">keyof</span> <span class="title">RouteComponentProps</span>&lt;<span class="title">any</span>&gt;&gt; &amp; <span class="title">WithRouterProps</span>&lt;<span class="title">C</span>&gt;</span></span><br><span class="line"><span class="function">&gt; &amp;</span></span><br><span class="line"><span class="function">  <span class="title">WithRouterStatics</span>&lt;<span class="title">C</span>&gt;</span>;</span><br></pre></td></tr></table></figure>
+<p>根据这个函数的声明是否能正确地写出 withRouter 的泛型参数呢？</p>
+<p><a href="/images/ts1-1.jpeg" data-caption="Image text" data-fancybox="images"><img src="/images/ts1-1.jpeg" alt="Image text"></a></p>
+<p>显然是要使用 RouteComponentProps,它需要传进去我们的路由参数</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> RouteComponentProps&lt;</span><br><span class="line">  Params <span class="keyword">extends</span> &#123; [K <span class="keyword">in</span> keyof Params]?: <span class="built_in">string</span> &#125; = &#123;&#125;,</span><br><span class="line">  C <span class="keyword">extends</span> StaticContext = StaticContext,</span><br><span class="line">  S = H.LocationState</span><br><span class="line">&gt; &#123;</span><br><span class="line">  history: H.History&lt;S&gt;;</span><br><span class="line">  location: H.Location&lt;S&gt;;</span><br><span class="line">  match: match&lt;Params&gt;;</span><br><span class="line">  staticContext?: C;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以我们声明两个类型，一个是函数本身接受的参数，一个是路由参数</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IProps &#123;</span><br><span class="line">    name:<span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> IRouteProps = RouteComponentProps&lt;&#123;</span><br><span class="line">    appId:<span class="built_in">string</span></span><br><span class="line">&#125;&gt;</span><br><span class="line"><span class="keyword">const</span> App = withRouter&lt;IRouteProps, FC&lt;IRouteProps &amp; IProps&gt;&gt;<span class="function">(<span class="params">(<span class="params">&#123; name, match &#125;</span>) =&gt; &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="comment">// appId可以获得到代码提示</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="comment">// ...</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="comment">// const &#123; params: &#123; appId &#125; &#125; = match</span></span></span></span><br><span class="line"><span class="function"><span class="params">&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>此时感受到了一点：从来没有像写 TS 这样的享受，能够把逻辑写的更加明确，代码更加潇洒，而且还有提示</p>
+<p>还有一类组件，它们是路由渲染的组件，本身带有<code>RouteComponentProps</code>，所以不需要使用withRouter包装<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App:FC&lt;IRouteProps &amp; IProps&gt;&gt; = <span class="function">(<span class="params">&#123;history,match,name&#125;</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>现在 react-router 有了 hooks，我们完全可以直接使用 hooks 来获取 history对象</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App:FC&lt;IProps&gt; = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> history = useHistory();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>下面我们着重来看 withRouter 和 RouteComponentProps 的类型声明中的小技巧</p>
+<h3 id="小技巧">小技巧<a class="post-anchor" href="#小技巧"></a></h3><ol>
+<li><p>in keyof</p>
+<p><code>Params extends { [K in keyof Params]?: string } = {}</code></p>
+<p>这两个经常成对出现,它能够把类型中的 key 提取出来，in 则类似于遍历所有 key 设置到类型中去，上面这段代码将 Params 所有的 value 设置为可选的 string 类型</p>
+</li>
+<li><p>Omit</p>
+<p><code>Omit&lt;P, keyof RouteComponentProps&lt;any&gt;&gt; &amp; WithRouterProps&lt;C&gt;</code></p>
+<p>Omit 是 TS 内置的类型，它的作用就是剔除掉某个属性与值，第二个参数是要剔除的属性值,详细的讲解可以参考这篇文章:</p>
+<blockquote>
+<p><a href="https://mariusschulz.com/blog/the-omit-helper-type-in-typescript" target="_blank" rel="noopener">https://mariusschulz.com/blog/the-omit-helper-type-in-typescript</a></p>
+</blockquote>
+</li>
+</ol>
+
+
+  
+  <div class="post-reward">
+    <!-- <div id="reward-button">打赏</div> -->
+    <div id="qr">
+      <div class="wrap">
+        
+        <div class="bg-wrap">
+          <a href="/images/zhifubao.png" target="_block" class="bg" style="background-image:url('/images/zhifubao.png')"></a>
+          支付宝
+        </div>
+        
+        
+        <div class="bg-wrap">
+          <a href="/images/weixin.png" target="_block" class="bg" style="background-image:url('/images/weixin.png')"></a>
+          微信
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+      
+    </div>
+    <div class="item right">
+      
+      <a href="2020/10/25/函数/">函数</a>
+      
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://missop.github.io">missop</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://missop.github.io/2020/12/26/ts-day1/">https://missop.github.io/2020/12/26/ts-day1/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://missop.github.io">missop</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+
+</article>
+        <footer>
+          <div class="copyright">
+            ©2020
+            <a href="https://missop.github.io">missop</a> Powered by <a href="https://hexo.io">Hexo</a> |
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 
